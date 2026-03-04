@@ -67,12 +67,201 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
+
+  <!-- Helicopter Loading Animation Styles -->
+  <style>
+    .heli-loader {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .heli-loader.done {
+      display: none;
+    }
+    /* The pink cover the helicopter "lifts" away */
+    .heli-cover {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, #FBC4BC 0%, #F9B0A8 40%, #F7A49A 100%);
+      transform: translateY(0);
+      will-change: transform;
+    }
+    .heli-cover.lift {
+      animation: coverLift 1.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      animation-delay: 0.8s;
+    }
+    @keyframes coverLift {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-110%); }
+    }
+    /* The helicopter */
+    .heli-svg-wrap {
+      position: absolute;
+      left: 50%;
+      bottom: 30%;
+      transform: translate(-50%, 0);
+      width: 180px;
+      height: 140px;
+      will-change: transform;
+    }
+    .heli-svg-wrap.fly {
+      animation: heliFly 1.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      animation-delay: 0.8s;
+    }
+    @keyframes heliFly {
+      0% { transform: translate(-50%, 0); }
+      30% { transform: translate(-50%, -20px); }
+      100% { transform: translate(-50%, -120vh); }
+    }
+    /* Idle hover bob before takeoff */
+    .heli-svg-wrap .heli-bob {
+      animation: heliBob 0.6s ease-in-out infinite alternate;
+    }
+    @keyframes heliBob {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-8px); }
+    }
+    /* Rotor spin */
+    .heli-rotor {
+      transform-origin: center;
+      animation: rotorSpin 0.15s linear infinite;
+    }
+    @keyframes rotorSpin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .heli-tail-rotor {
+      transform-origin: center;
+      animation: rotorSpin 0.1s linear infinite;
+    }
+    /* Rope lines connecting helicopter to cover */
+    .heli-ropes {
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 100vh;
+      pointer-events: none;
+    }
+    .heli-ropes line {
+      stroke: #E8A098;
+      stroke-width: 2;
+      stroke-dasharray: 6 4;
+    }
+    /* Loading text */
+    .heli-text {
+      position: absolute;
+      left: 50%;
+      bottom: 18%;
+      transform: translateX(-50%);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: #C95544;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
+    .heli-text.hide {
+      animation: fadeOut 0.4s ease forwards;
+      animation-delay: 0.7s;
+    }
+    @keyframes fadeOut {
+      to { opacity: 0; }
+    }
+  </style>
 </head>
 <body>
+  <!-- === Helicopter Loading Animation === -->
+  <div class="heli-loader" id="heliLoader" aria-hidden="true">
+    <div class="heli-cover" id="heliCover">
+      <!-- Helicopter SVG -->
+      <div class="heli-svg-wrap" id="heliSvg">
+        <div class="heli-bob">
+          <svg viewBox="0 0 200 160" fill="none" xmlns="http://www.w3.org/2000/svg" width="180" height="140">
+            <!-- Shadow on ground -->
+            <ellipse cx="90" cy="148" rx="50" ry="6" fill="rgba(200,120,110,0.15)"/>
+            <!-- Skids -->
+            <rect x="50" y="128" width="80" height="6" rx="3" fill="#F5BAB4"/>
+            <rect x="55" y="122" width="6" height="10" rx="2" fill="#F0A8A0"/>
+            <rect x="118" y="122" width="6" height="10" rx="2" fill="#F0A8A0"/>
+            <!-- Body -->
+            <ellipse cx="90" cy="100" rx="52" ry="36" fill="#F9C4BE"/>
+            <ellipse cx="90" cy="98" rx="48" ry="33" fill="#FBD0CA"/>
+            <!-- Windows -->
+            <ellipse cx="74" cy="94" rx="18" ry="20" fill="#BDE0F0"/>
+            <ellipse cx="74" cy="94" rx="15" ry="17" fill="#D0ECF6"/>
+            <ellipse cx="106" cy="94" rx="12" ry="16" fill="#BDE0F0"/>
+            <ellipse cx="106" cy="94" rx="10" ry="13" fill="#D0ECF6"/>
+            <!-- Window divider -->
+            <rect x="88" y="78" width="4" height="32" rx="2" fill="#F5BAB4"/>
+            <!-- Door handle / accent circle -->
+            <circle cx="120" cy="98" r="6" fill="#F0A8A0"/>
+            <circle cx="120" cy="98" r="4" fill="#E8968C"/>
+            <!-- Tail boom -->
+            <rect x="135" y="88" width="45" height="12" rx="6" fill="#D0ECF6"/>
+            <rect x="135" y="90" width="45" height="8" rx="4" fill="#DCEEF6"/>
+            <!-- Tail fin -->
+            <ellipse cx="178" cy="82" rx="10" ry="18" fill="#D0ECF6"/>
+            <ellipse cx="178" cy="82" rx="7" ry="14" fill="#DCEEF6"/>
+            <!-- Tail rotor -->
+            <g class="heli-tail-rotor" style="transform-origin: 178px 82px;">
+              <rect x="176" y="64" width="4" height="14" rx="2" fill="#F5BAB4"/>
+              <rect x="176" y="86" width="4" height="14" rx="2" fill="#F5BAB4"/>
+            </g>
+            <!-- Tail rotor hub -->
+            <circle cx="178" cy="82" r="4" fill="#F0A8A0"/>
+            <!-- Mast -->
+            <rect x="87" y="58" width="6" height="12" rx="2" fill="#E8968C"/>
+            <!-- Main rotor hub -->
+            <ellipse cx="90" cy="56" rx="8" ry="5" fill="#F0A8A0"/>
+            <!-- Main rotor blades -->
+            <g class="heli-rotor" style="transform-origin: 90px 54px;">
+              <rect x="20" y="51" width="60" height="6" rx="3" fill="#F5BAB4"/>
+              <rect x="100" y="51" width="60" height="6" rx="3" fill="#F5BAB4"/>
+              <rect x="87" y="24" width="6" height="60" rx="3" fill="#F5BAB4" opacity="0.5"/>
+            </g>
+          </svg>
+        </div>
+        <!-- Ropes from helicopter to cover edges -->
+        <svg class="heli-ropes" viewBox="0 0 120 400" preserveAspectRatio="none">
+          <line x1="20" y1="0" x2="20" y2="400"/>
+          <line x1="100" y1="0" x2="100" y2="400"/>
+        </svg>
+      </div>
+      <div class="heli-text" id="heliText">Loading</div>
+    </div>
+  </div>
+
   {% include header.html %}
   <main role="main" aria-label="Main content">
     {{ content }}
   </main>
   {% include footer.html %}
+
+  <!-- Helicopter animation trigger -->
+  <script>
+  (function() {
+    // Only show on first visit per session
+    if (sessionStorage.getItem('heliDone')) {
+      document.getElementById('heliLoader').classList.add('done');
+      return;
+    }
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        document.getElementById('heliCover').classList.add('lift');
+        document.getElementById('heliSvg').classList.add('fly');
+        document.getElementById('heliText').classList.add('hide');
+      }, 600);
+      setTimeout(function() {
+        document.getElementById('heliLoader').classList.add('done');
+        sessionStorage.setItem('heliDone', '1');
+      }, 3200);
+    });
+  })();
+  </script>
 </body>
 </html>

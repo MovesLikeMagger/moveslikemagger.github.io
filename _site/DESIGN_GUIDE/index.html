@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maggie Trowbridge | Cybersecurity Blog & Portfolio</title>
+  <meta name="description" content="Cybersecurity blog by Maggie Trowbridge — GRC Lead, Cyber Law student, and Security Analyst at Indiana Institute of Technology. Writing about governance, risk, compliance, cyber law, regulatory frameworks, and security policy.">
+  <meta name="keywords" content="Maggie Trowbridge, cybersecurity blog, GRC, governance risk compliance, cyber law, criminal law, security policy, CCDC, NIST, HIPAA, regulatory compliance, Indiana Tech, Cyber Warriors">
+  <meta name="author" content="Maggie Trowbridge">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="http://0.0.0.0:4000/DESIGN_GUIDE/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://0.0.0.0:4000/DESIGN_GUIDE/">
+  <meta property="og:title" content="Maggie Trowbridge">
+  <meta property="og:description" content="Cybersecurity blog by Maggie Trowbridge — GRC Lead, Cyber Law student, and Security Analyst at Indiana Institute of Technology. Writing about governance, risk, compliance, cyber law, regulatory frameworks, and security policy.">
+  <meta property="og:image" content="http://0.0.0.0:4000/assets/headshot.jpg">
+  <meta property="og:site_name" content="Maggie Trowbridge">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Maggie Trowbridge">
+  <meta name="twitter:description" content="Cybersecurity blog by Maggie Trowbridge — GRC Lead, Cyber Law student, and Security Analyst at Indiana Institute of Technology. Writing about governance, risk, compliance, cyber law, regulatory frameworks, and security policy.">
+  <meta name="twitter:image" content="http://0.0.0.0:4000/assets/headshot.jpg">
+
+  <!-- Structured Data / JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Maggie Trowbridge",
+    "url": "http://0.0.0.0:4000",
+    "email": "maggiemtrowbridge@gmail.com",
+    "telephone": "+1-269-206-0439",
+    "jobTitle": "Security Analyst Apprentice",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Indiana Cyber Network"
+    },
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Indiana Institute of Technology"
+    },
+    "knowsAbout": ["Cybersecurity", "Governance Risk and Compliance", "Offensive Security", "Network Security", "Cyber Defense"],
+    "sameAs": ["https://techcyberwarriors.org"],
+    "image": "http://0.0.0.0:4000/assets/headshot.jpg"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Maggie Trowbridge",
+    "url": "http://0.0.0.0:4000",
+    "description": "Cybersecurity blog by Maggie Trowbridge — GRC Lead, Cyber Law student, and Security Analyst at Indiana Institute of Technology. Writing about governance, risk, compliance, cyber law, regulatory frameworks, and security policy.",
+    "author": {
+      "@type": "Person",
+      "name": "Maggie Trowbridge"
+    }
+  }
+  </script>
+
+  <link rel="icon" type="image/jpeg" href="/assets/headshot.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <!-- Helicopter Loading Animation Styles -->
+  <style>
+    .heli-loader {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .heli-loader.done {
+      display: none;
+    }
+    /* The pink cover the helicopter "lifts" away */
+    .heli-cover {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, #FBC4BC 0%, #F9B0A8 40%, #F7A49A 100%);
+      transform: translateY(0);
+      will-change: transform;
+    }
+    .heli-cover.lift {
+      animation: coverLift 1.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      animation-delay: 0.8s;
+    }
+    @keyframes coverLift {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-110%); }
+    }
+    /* The helicopter */
+    .heli-svg-wrap {
+      position: absolute;
+      left: 50%;
+      bottom: 30%;
+      transform: translate(-50%, 0);
+      width: 180px;
+      height: 140px;
+      will-change: transform;
+    }
+    .heli-svg-wrap.fly {
+      animation: heliFly 1.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      animation-delay: 0.8s;
+    }
+    @keyframes heliFly {
+      0% { transform: translate(-50%, 0); }
+      30% { transform: translate(-50%, -20px); }
+      100% { transform: translate(-50%, -120vh); }
+    }
+    /* Idle hover bob before takeoff */
+    .heli-svg-wrap .heli-bob {
+      animation: heliBob 0.6s ease-in-out infinite alternate;
+    }
+    @keyframes heliBob {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-8px); }
+    }
+    /* Rotor spin */
+    .heli-rotor {
+      transform-origin: center;
+      animation: rotorSpin 0.15s linear infinite;
+    }
+    @keyframes rotorSpin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .heli-tail-rotor {
+      transform-origin: center;
+      animation: rotorSpin 0.1s linear infinite;
+    }
+    /* Rope lines connecting helicopter to cover */
+    .heli-ropes {
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 100vh;
+      pointer-events: none;
+    }
+    .heli-ropes line {
+      stroke: #E8A098;
+      stroke-width: 2;
+      stroke-dasharray: 6 4;
+    }
+    /* Loading text */
+    .heli-text {
+      position: absolute;
+      left: 50%;
+      bottom: 18%;
+      transform: translateX(-50%);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: #C95544;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
+    .heli-text.hide {
+      animation: fadeOut 0.4s ease forwards;
+      animation-delay: 0.7s;
+    }
+    @keyframes fadeOut {
+      to { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <!-- === Helicopter Loading Animation === -->
+  <div class="heli-loader" id="heliLoader" aria-hidden="true">
+    <div class="heli-cover" id="heliCover">
+      <!-- Helicopter SVG -->
+      <div class="heli-svg-wrap" id="heliSvg">
+        <div class="heli-bob">
+          <svg viewBox="0 0 200 160" fill="none" xmlns="http://www.w3.org/2000/svg" width="180" height="140">
+            <!-- Shadow on ground -->
+            <ellipse cx="90" cy="148" rx="50" ry="6" fill="rgba(200,120,110,0.15)"/>
+            <!-- Skids -->
+            <rect x="50" y="128" width="80" height="6" rx="3" fill="#F5BAB4"/>
+            <rect x="55" y="122" width="6" height="10" rx="2" fill="#F0A8A0"/>
+            <rect x="118" y="122" width="6" height="10" rx="2" fill="#F0A8A0"/>
+            <!-- Body -->
+            <ellipse cx="90" cy="100" rx="52" ry="36" fill="#F9C4BE"/>
+            <ellipse cx="90" cy="98" rx="48" ry="33" fill="#FBD0CA"/>
+            <!-- Windows -->
+            <ellipse cx="74" cy="94" rx="18" ry="20" fill="#BDE0F0"/>
+            <ellipse cx="74" cy="94" rx="15" ry="17" fill="#D0ECF6"/>
+            <ellipse cx="106" cy="94" rx="12" ry="16" fill="#BDE0F0"/>
+            <ellipse cx="106" cy="94" rx="10" ry="13" fill="#D0ECF6"/>
+            <!-- Window divider -->
+            <rect x="88" y="78" width="4" height="32" rx="2" fill="#F5BAB4"/>
+            <!-- Door handle / accent circle -->
+            <circle cx="120" cy="98" r="6" fill="#F0A8A0"/>
+            <circle cx="120" cy="98" r="4" fill="#E8968C"/>
+            <!-- Tail boom -->
+            <rect x="135" y="88" width="45" height="12" rx="6" fill="#D0ECF6"/>
+            <rect x="135" y="90" width="45" height="8" rx="4" fill="#DCEEF6"/>
+            <!-- Tail fin -->
+            <ellipse cx="178" cy="82" rx="10" ry="18" fill="#D0ECF6"/>
+            <ellipse cx="178" cy="82" rx="7" ry="14" fill="#DCEEF6"/>
+            <!-- Tail rotor -->
+            <g class="heli-tail-rotor" style="transform-origin: 178px 82px;">
+              <rect x="176" y="64" width="4" height="14" rx="2" fill="#F5BAB4"/>
+              <rect x="176" y="86" width="4" height="14" rx="2" fill="#F5BAB4"/>
+            </g>
+            <!-- Tail rotor hub -->
+            <circle cx="178" cy="82" r="4" fill="#F0A8A0"/>
+            <!-- Mast -->
+            <rect x="87" y="58" width="6" height="12" rx="2" fill="#E8968C"/>
+            <!-- Main rotor hub -->
+            <ellipse cx="90" cy="56" rx="8" ry="5" fill="#F0A8A0"/>
+            <!-- Main rotor blades -->
+            <g class="heli-rotor" style="transform-origin: 90px 54px;">
+              <rect x="20" y="51" width="60" height="6" rx="3" fill="#F5BAB4"/>
+              <rect x="100" y="51" width="60" height="6" rx="3" fill="#F5BAB4"/>
+              <rect x="87" y="24" width="6" height="60" rx="3" fill="#F5BAB4" opacity="0.5"/>
+            </g>
+          </svg>
+        </div>
+        <!-- Ropes from helicopter to cover edges -->
+        <svg class="heli-ropes" viewBox="0 0 120 400" preserveAspectRatio="none">
+          <line x1="20" y1="0" x2="20" y2="400"/>
+          <line x1="100" y1="0" x2="100" y2="400"/>
+        </svg>
+      </div>
+      <div class="heli-text" id="heliText">Loading</div>
+    </div>
+  </div>
+
+  <header class="site-header">
+  <div class="container">
+    <nav class="nav">
+      <a href="/" class="logo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="24" height="24" rx="4" fill="#E86C5A"/>
+          <path d="M7 8h10M7 12h10M7 16h6" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span>Maggie Trowbridge</span>
+      </a>
+      <button class="mobile-menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="#contact" class="btn btn-primary nav-cta">Get in touch</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+  this.classList.toggle('active');
+  document.querySelector('.nav-links').classList.toggle('open');
+  document.querySelector('.nav-cta').classList.toggle('open');
+});
+
+// Scroll spy for active nav link
+(function() {
+  var sections = ['home', 'blog', 'about', 'contact'];
+  var links = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', function() {
+    var scrollPos = window.scrollY + 100;
+    sections.forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el && el.offsetTop <= scrollPos && el.offsetTop + el.offsetHeight > scrollPos) {
+        links.forEach(function(l) { l.classList.remove('active'); });
+        var active = document.querySelector('.nav-links a[href="#' + id + '"]');
+        if (active) active.classList.add('active');
+      }
+    });
+  });
+})();
+</script>
+
+  <main role="main" aria-label="Main content">
+    <p>follow this shit to make a post</p>
+
+<hr />
+
+<h2 id="creating-a-new-post">Creating a New Post</h2>
+
+<ol>
+  <li>Create a new <code class="language-plaintext highlighter-rouge">.md</code> file in the <code class="language-plaintext highlighter-rouge">_posts/</code> folder</li>
+  <li>Name it using the format: <code class="language-plaintext highlighter-rouge">YYYY-MM-DD-your-post-title-here.md</code></li>
+  <li>Add the required front matter (see below)</li>
+  <li>Write your content in Markdown</li>
+  <li>Run <code class="language-plaintext highlighter-rouge">bundle exec jekyll build</code> to verify, or <code class="language-plaintext highlighter-rouge">bundle exec jekyll serve</code> to preview</li>
+</ol>
+
+<p>The post will automatically appear on the home page’s blog grid and get its own page at:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yourdomain.com/your-post-title-here/
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="front-matter-reference">Front Matter Reference</h2>
+
+<p>Every post <strong>must</strong> start with a YAML front matter block between <code class="language-plaintext highlighter-rouge">---</code> fences. Here’s every available field:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">layout</span><span class="pi">:</span> <span class="s">post</span>              <span class="c1"># REQUIRED — always "post"</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Your</span><span class="nv"> </span><span class="s">Post</span><span class="nv"> </span><span class="s">Title"</span>  <span class="c1"># REQUIRED — appears as the page heading and in the card</span>
+<span class="na">subtitle</span><span class="pi">:</span> <span class="s2">"</span><span class="s">A</span><span class="nv"> </span><span class="s">longer</span><span class="nv"> </span><span class="s">description</span><span class="nv"> </span><span class="s">that</span><span class="nv"> </span><span class="s">appears</span><span class="nv"> </span><span class="s">below</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">title</span><span class="nv"> </span><span class="s">on</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">post</span><span class="nv"> </span><span class="s">page."</span>  <span class="c1"># Optional but recommended</span>
+<span class="na">date</span><span class="pi">:</span> <span class="s">2026-03-04</span>          <span class="c1"># REQUIRED — format: YYYY-MM-DD</span>
+<span class="na">category</span><span class="pi">:</span> <span class="s">GRC &amp; Law</span>       <span class="c1"># Optional — single category shown as a badge on the card</span>
+<span class="na">tags</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">GRC</span><span class="pi">,</span> <span class="nv">Compliance</span><span class="pi">,</span> <span class="nv">Cyber Law</span><span class="pi">]</span>  <span class="c1"># Optional — array of tags shown below the card</span>
+<span class="na">readtime</span><span class="pi">:</span> <span class="s2">"</span><span class="s">8</span><span class="nv"> </span><span class="s">min</span><span class="nv"> </span><span class="s">read"</span>    <span class="c1"># Optional — shown next to the date</span>
+<span class="na">toc</span><span class="pi">:</span>                       <span class="c1"># Optional — generates a "In this article" box</span>
+  <span class="pi">-</span> <span class="na">id</span><span class="pi">:</span> <span class="s">section-id</span>         <span class="c1">#   Must match the {: #section-id} on the heading</span>
+    <span class="na">title</span><span class="pi">:</span> <span class="s">Section Title</span>   <span class="c1">#   Display text in the TOC</span>
+  <span class="pi">-</span> <span class="na">id</span><span class="pi">:</span> <span class="s">another-section</span>
+    <span class="na">title</span><span class="pi">:</span> <span class="s">Another Section</span>
+<span class="nn">---</span>
+</code></pre></div></div>
+
+<h3 id="field-details">Field Details</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Required</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">layout</code></td>
+      <td>✅</td>
+      <td>String</td>
+      <td>Always <code class="language-plaintext highlighter-rouge">post</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">title</code></td>
+      <td>✅</td>
+      <td>String</td>
+      <td>Post title. Wrap in quotes if it contains colons or special characters.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">subtitle</code></td>
+      <td>❌</td>
+      <td>String</td>
+      <td>Secondary description shown under the title on the post page.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">date</code></td>
+      <td>✅</td>
+      <td>Date</td>
+      <td><code class="language-plaintext highlighter-rouge">YYYY-MM-DD</code> format. Controls sort order and display date.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">category</code></td>
+      <td>❌</td>
+      <td>String</td>
+      <td>Single category. Shown as a coral badge on the post card.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">tags</code></td>
+      <td>❌</td>
+      <td>Array of Strings</td>
+      <td>Shown as small pill badges. Use <code class="language-plaintext highlighter-rouge">[Tag1, Tag2, Tag3]</code> syntax.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">readtime</code></td>
+      <td>❌</td>
+      <td>String</td>
+      <td>e.g. <code class="language-plaintext highlighter-rouge">"8 min read"</code>. Shown next to the publish date.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">toc</code></td>
+      <td>❌</td>
+      <td>Array of Objects</td>
+      <td>Each item needs <code class="language-plaintext highlighter-rouge">id</code> (anchor) and <code class="language-plaintext highlighter-rouge">title</code> (display text).</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="writing-the-body">Writing the Body</h2>
+
+<p>After the front matter <code class="language-plaintext highlighter-rouge">---</code>, write your post in standard Markdown. The first paragraph becomes the <strong>excerpt</strong> shown on the blog card on the home page (auto-truncated to ~25 words).</p>
+
+<h3 id="section-headings-with-anchors-for-toc">Section Headings with Anchors (for TOC)</h3>
+
+<p>If you’re using the <code class="language-plaintext highlighter-rouge">toc</code> front matter, you need to add anchor IDs to your headings:</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gu">## Your Section Title</span>
+{: #your-section-id}
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">#your-section-id</code> must match the <code class="language-plaintext highlighter-rouge">id</code> in your <code class="language-plaintext highlighter-rouge">toc</code> front matter exactly.</p>
+
+<hr />
+
+<h2 id="formatting-guide">Formatting Guide</h2>
+
+<p>Here’s everything you can use in the post body and how it renders:</p>
+
+<h3 id="headings">Headings</h3>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gu">## Main Section Heading        ← Use for major sections (renders with top border)</span>
+<span class="gu">### Sub-section Heading        ← Use for subsections</span>
+<span class="gu">#### Minor Heading             ← Rarely needed</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p><strong>Note:</strong> Don’t use <code class="language-plaintext highlighter-rouge"># H1</code> in the body — the post title is already an H1.</p>
+</blockquote>
+
+<h3 id="paragraphs">Paragraphs</h3>
+
+<p>Just write normally with a blank line between paragraphs:</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>This is the first paragraph.
+
+This is the second paragraph.
+</code></pre></div></div>
+
+<h3 id="bold--italic">Bold &amp; Italic</h3>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gs">**Bold text**</span> for emphasis
+<span class="ge">*Italic text*</span> for softer emphasis
+<span class="gs">***Bold italic**</span><span class="err">*</span> for maximum emphasis
+</code></pre></div></div>
+
+<h3 id="lists">Lists</h3>
+
+<p><strong>Bullet list:</strong></p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">-</span> First item
+<span class="p">-</span> Second item
+<span class="p">-</span> Third item with <span class="gs">**bold**</span> inside
+</code></pre></div></div>
+
+<p><strong>Numbered list:</strong></p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">1.</span> First step
+<span class="p">2.</span> Second step
+<span class="p">3.</span> Third step
+</code></pre></div></div>
+
+<p><strong>Nested list:</strong></p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">-</span> Parent item
+<span class="p">  -</span> Child item
+<span class="p">  -</span> Another child
+<span class="p">-</span> Another parent
+</code></pre></div></div>
+
+<h3 id="blockquotes">Blockquotes</h3>
+
+<p>Renders with a coral left border and pink background:</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gt">&gt; "Security without governance is like a ship without a rudder — you might stay afloat, but you'll never reach your destination."</span>
+</code></pre></div></div>
+
+<h3 id="links">Links</h3>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="nv">Link text</span><span class="p">](</span><span class="sx">https://example.com</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Links in posts render in the coral/pink accent color with an underline.</p>
+
+<h3 id="inline-code">Inline Code</h3>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Use <span class="sb">`backticks`</span> for inline code, variable names like <span class="sb">`NIST_CSF`</span>, or commands like <span class="sb">`nmap`</span>.
+</code></pre></div></div>
+
+<p>Renders with a light pink background and coral text.</p>
+
+<h3 id="code-blocks">Code Blocks</h3>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">
+</span>Multi-line code blocks
+render with a dark background
+and monospace font
+<span class="p">```</span>
+</code></pre></div></div>
+
+<p>For syntax-highlighted code, specify the language:</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">python
+</span><span class="k">def</span> <span class="nf">assess_risk</span><span class="p">(</span><span class="n">asset</span><span class="p">,</span> <span class="n">threat</span><span class="p">,</span> <span class="n">vulnerability</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">asset</span> <span class="o">*</span> <span class="n">threat</span> <span class="o">*</span> <span class="n">vulnerability</span>
+<span class="p">```</span>
+</code></pre></div></div>
+
+<h3 id="bold-terms-in-lists-common-pattern">Bold Terms in Lists (Common Pattern)</h3>
+
+<p>This is used heavily in existing posts for emphasis:</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">-</span> <span class="gs">**Governance**</span> establishes the policies and procedures that guide security
+<span class="p">-</span> <span class="gs">**Risk Management**</span> identifies and prioritizes threats
+<span class="p">-</span> <span class="gs">**Compliance**</span> ensures regulatory obligations are met
+</code></pre></div></div>
+
+<h3 id="horizontal-rules">Horizontal Rules</h3>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">---
+</span></code></pre></div></div>
+
+<p>Creates a visual separator between sections.</p>
+
+<h3 id="images">Images</h3>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">![</span><span class="nv">Alt text description</span><span class="p">](</span><span class="sx">/assets/your-image.jpg</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Place images in the <code class="language-plaintext highlighter-rouge">assets/</code> folder.</p>
+
+<hr />
+
+<h2 id="categories--tags">Categories &amp; Tags</h2>
+
+<h3 id="current-categories-in-use">Current Categories in Use</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Used For</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">GRC &amp; Law</code></td>
+      <td>Governance, risk, compliance, and legal topics</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Competition</code></td>
+      <td>CCDC, CPTC, and other cyber competitions</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Cyber Law</code></td>
+      <td>Legal frameworks, regulations, criminal law</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>You can create new categories — they’ll automatically work. Just pick a short, descriptive name.</p>
+
+<h3 id="current-tags-in-use">Current Tags in Use</h3>
+
+<p><code class="language-plaintext highlighter-rouge">GRC</code> · <code class="language-plaintext highlighter-rouge">Compliance</code> · <code class="language-plaintext highlighter-rouge">Cyber Law</code> · <code class="language-plaintext highlighter-rouge">Security Policy</code> · <code class="language-plaintext highlighter-rouge">CCDC</code> · <code class="language-plaintext highlighter-rouge">Criminal Law</code> · <code class="language-plaintext highlighter-rouge">Policy</code> · <code class="language-plaintext highlighter-rouge">Team</code></p>
+
+<p>Tags are flexible — add whatever is relevant. Keep them concise (1-3 words each).</p>
+
+<hr />
+
+<h2 id="file-naming">File Naming</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>_posts/YYYY-MM-DD-title-with-dashes.md
+</code></pre></div></div>
+
+<p><strong>Rules:</strong></p>
+<ul>
+  <li>Date must be today or in the past (future dates won’t publish)</li>
+  <li>Use lowercase</li>
+  <li>Replace spaces with hyphens</li>
+  <li>Remove special characters</li>
+  <li>Keep it readable but concise</li>
+</ul>
+
+<p><strong>Examples:</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>_posts/2026-03-04-understanding-grc-makes-you-a-better-cybersecurity-professional.md
+_posts/2026-02-15-what-i-learned-competing-at-national-ccdc.md
+_posts/2026-01-20-why-every-cybersecurity-professional-needs-to-understand-cyber-law.md
+</code></pre></div></div>
+
+<p>The filename (minus the date) becomes the URL slug:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yourdomain.com/understanding-grc-makes-you-a-better-cybersecurity-professional/
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="images--media">Images &amp; Media</h2>
+
+<ul>
+  <li>Place all images in the <code class="language-plaintext highlighter-rouge">assets/</code> folder</li>
+  <li>Reference them with: <code class="language-plaintext highlighter-rouge">/assets/filename.jpg</code></li>
+  <li>Or in plain Markdown: <code class="language-plaintext highlighter-rouge">![Alt text](/assets/filename.jpg)</code></li>
+  <li>Supported formats: <code class="language-plaintext highlighter-rouge">.jpg</code>, <code class="language-plaintext highlighter-rouge">.png</code>, <code class="language-plaintext highlighter-rouge">.gif</code>, <code class="language-plaintext highlighter-rouge">.svg</code>, <code class="language-plaintext highlighter-rouge">.webp</code></li>
+  <li>The site headshot is at <code class="language-plaintext highlighter-rouge">assets/headshot.jpg</code> (also used as favicon)</li>
+</ul>
+
+<hr />
+
+<h2 id="quick-start-template">Quick-Start Template</h2>
+
+<p>Copy this entire block into a new file in <code class="language-plaintext highlighter-rouge">_posts/</code> to get stuff:</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">layout</span><span class="pi">:</span> <span class="s">post</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Your</span><span class="nv"> </span><span class="s">Post</span><span class="nv"> </span><span class="s">Title</span><span class="nv"> </span><span class="s">Here"</span>
+<span class="na">subtitle</span><span class="pi">:</span> <span class="s2">"</span><span class="s">A</span><span class="nv"> </span><span class="s">brief</span><span class="nv"> </span><span class="s">description</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">what</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">post</span><span class="nv"> </span><span class="s">covers."</span>
+<span class="na">date</span><span class="pi">:</span> <span class="s">2026-XX-XX</span>
+<span class="na">category</span><span class="pi">:</span> <span class="s">GRC &amp; Law</span>
+<span class="na">tags</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">Tag1</span><span class="pi">,</span> <span class="nv">Tag2</span><span class="pi">,</span> <span class="nv">Tag3</span><span class="pi">]</span>
+<span class="na">readtime</span><span class="pi">:</span> <span class="s2">"</span><span class="s">X</span><span class="nv"> </span><span class="s">min</span><span class="nv"> </span><span class="s">read"</span>
+<span class="na">toc</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">id</span><span class="pi">:</span> <span class="s">first-section</span>
+    <span class="na">title</span><span class="pi">:</span> <span class="s">First Section</span>
+  <span class="pi">-</span> <span class="na">id</span><span class="pi">:</span> <span class="s">second-section</span>
+    <span class="na">title</span><span class="pi">:</span> <span class="s">Second Section</span>
+  <span class="pi">-</span> <span class="na">id</span><span class="pi">:</span> <span class="s">conclusion</span>
+    <span class="na">title</span><span class="pi">:</span> <span class="s">Conclusion</span>
+<span class="nn">---</span>
+
+Your opening paragraph goes here. This first paragraph is what shows up as the
+preview text on the blog card on the home page, so make it count — hook the
+reader in 1-2 sentences.
+
+<span class="gu">## First Section</span>
+{: #first-section}
+
+Content for the first section...
+
+<span class="gu">## Second Section</span>
+{: #second-section}
+
+Content for the second section...
+
+<span class="gu">## Conclusion</span>
+{: #conclusion}
+
+Wrap up your thoughts here.
+</code></pre></div></div>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="logo">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="24" height="24" rx="4" fill="#E86C5A"/>
+            <path d="M7 8h10M7 12h10M7 16h6" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <span>Maggie Trowbridge</span>
+        </a>
+        <p class="footer-tagline">GRC professional, cyber law student, and security researcher.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="mailto:maggiemtrowbridge@gmail.com">Email</a></li>
+          <li><a href="https://techcyberwarriors.org" target="_blank" rel="noopener">Cyber Warriors</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Maggie Trowbridge. All rights reserved. &nbsp;&bull;&nbsp; Powered by <a href="https://mtsaga.net" target="_blank" rel="noopener" class="mtsaga-link">MTSAGA.net</a></p>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- Helicopter animation trigger -->
+  <script>
+  (function() {
+    // Only show on first visit per session
+    if (sessionStorage.getItem('heliDone')) {
+      document.getElementById('heliLoader').classList.add('done');
+      return;
+    }
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        document.getElementById('heliCover').classList.add('lift');
+        document.getElementById('heliSvg').classList.add('fly');
+        document.getElementById('heliText').classList.add('hide');
+      }, 600);
+      setTimeout(function() {
+        document.getElementById('heliLoader').classList.add('done');
+        sessionStorage.setItem('heliDone', '1');
+      }, 3200);
+    });
+  })();
+  </script>
+</body>
+</html>
