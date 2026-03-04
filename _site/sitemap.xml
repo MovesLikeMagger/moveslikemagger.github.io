@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>/why-every-cybersecurity-professional-needs-to-understand-cyber-law/</loc>
+<loc>http://0.0.0.0:4000/why-every-cybersecurity-professional-needs-to-understand-cyber-law/</loc>
 <lastmod>2026-01-20T00:00:00+00:00</lastmod>
 </url>
 <url>
-<loc>/what-i-learned-competing-at-national-ccdc/</loc>
+<loc>http://0.0.0.0:4000/what-i-learned-competing-at-national-ccdc/</loc>
 <lastmod>2026-02-15T00:00:00+00:00</lastmod>
 </url>
 <url>
-<loc>/understanding-grc-makes-you-a-better-cybersecurity-professional/</loc>
+<loc>http://0.0.0.0:4000/understanding-grc-makes-you-a-better-cybersecurity-professional/</loc>
 <lastmod>2026-03-04T00:00:00+00:00</lastmod>
 </url>
 <url>
-<loc>/</loc>
+<loc>http://0.0.0.0:4000/</loc>
 </url>
 </urlset>
