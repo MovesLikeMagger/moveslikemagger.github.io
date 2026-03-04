@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maggie Trowbridge | Cybersecurity Blog & Portfolio</title>
+  <meta name="description" content="Maggie Trowbridge — GRC Lead, Cyber Law student, Security Analyst, and Research Assistant. Writing about governance, risk, compliance, cyber law, security policy, regulatory frameworks, and the intersection of law and cybersecurity.">
+  <meta name="keywords" content="Maggie Trowbridge, GRC, governance risk compliance, cyber law, criminal law cybersecurity, security policy, CCDC, NIST, HIPAA, regulatory compliance, Indiana Tech Cyber Warriors">
+  <meta name="author" content="Maggie Trowbridge">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="/">
+  <meta property="og:title" content="Home">
+  <meta property="og:description" content="Maggie Trowbridge — GRC Lead, Cyber Law student, Security Analyst, and Research Assistant. Writing about governance, risk, compliance, cyber law, security policy, regulatory frameworks, and the intersection of law and cybersecurity.">
+  <meta property="og:image" content="/assets/headshot.jpg">
+  <meta property="og:site_name" content="Maggie Trowbridge">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Home">
+  <meta name="twitter:description" content="Maggie Trowbridge — GRC Lead, Cyber Law student, Security Analyst, and Research Assistant. Writing about governance, risk, compliance, cyber law, security policy, regulatory frameworks, and the intersection of law and cybersecurity.">
+  <meta name="twitter:image" content="/assets/headshot.jpg">
+
+  <!-- Structured Data / JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Maggie Trowbridge",
+    "url": "",
+    "email": "maggiemtrowbridge@gmail.com",
+    "telephone": "+1-269-206-0439",
+    "jobTitle": "Security Analyst Apprentice",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Indiana Cyber Network"
+    },
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Indiana Institute of Technology"
+    },
+    "knowsAbout": ["Cybersecurity", "Governance Risk and Compliance", "Offensive Security", "Network Security", "Cyber Defense"],
+    "sameAs": ["https://techcyberwarriors.org"],
+    "image": "/assets/headshot.jpg"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Maggie Trowbridge",
+    "url": "",
+    "description": "Cybersecurity blog by Maggie Trowbridge — GRC Lead, Cyber Law student, and Security Analyst at Indiana Institute of Technology. Writing about governance, risk, compliance, cyber law, regulatory frameworks, and security policy.",
+    "author": {
+      "@type": "Person",
+      "name": "Maggie Trowbridge"
+    }
+  }
+  </script>
+
+  <link rel="icon" type="image/jpeg" href="/assets/headshot.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+  <div class="container">
+    <nav class="nav">
+      <a href="/" class="logo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="24" height="24" rx="4" fill="#E86C5A"/>
+          <path d="M7 8h10M7 12h10M7 16h6" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span>Maggie Trowbridge</span>
+      </a>
+      <button class="mobile-menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="#contact" class="btn btn-primary nav-cta">Get in touch</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+  this.classList.toggle('active');
+  document.querySelector('.nav-links').classList.toggle('open');
+  document.querySelector('.nav-cta').classList.toggle('open');
+});
+
+// Scroll spy for active nav link
+(function() {
+  var sections = ['home', 'blog', 'about', 'contact'];
+  var links = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', function() {
+    var scrollPos = window.scrollY + 100;
+    sections.forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el && el.offsetTop <= scrollPos && el.offsetTop + el.offsetHeight > scrollPos) {
+        links.forEach(function(l) { l.classList.remove('active'); });
+        var active = document.querySelector('.nav-links a[href="#' + id + '"]');
+        if (active) active.classList.add('active');
+      }
+    });
+  });
+})();
+</script>
+
+  <main role="main" aria-label="Main content">
+    <!-- ===== HERO ===== -->
+<section id="home" class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        GRC &bull; Cyber Law &bull; Security Policy
+      </div>
+      <h1>Maggie Trowbridge</h1>
+      <p>Governance, risk, and compliance isn't just paperwork — it's the backbone of every secure organization. Exploring the intersection of cybersecurity, law, and policy can make you a stronger professional and a more informed citizen.</p>
+      <p class="im-just-a-girl">i'm just a girl... &#x1F338;</p>
+      <div class="hero-buttons">
+        <a href="#blog" class="btn btn-primary">Read the blog</a>
+        <a href="#about" class="btn btn-secondary">About me</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BLOG ===== -->
+<section id="blog" class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Latest Posts</h2>
+    </div>
+    <div class="posts-grid">
+      
+      
+      <article class="post-card">
+        <a href="/understanding-grc-makes-you-a-better-cybersecurity-professional/" class="post-card-link">
+          <div class="post-card-body">
+            
+            <span class="post-card-category">GRC & Law</span>
+            
+            <h3 class="post-card-title">Understanding GRC Makes You a Better Cybersecurity Professional</h3>
+            <p class="post-card-excerpt">When most people think of cybersecurity, they picture hackers in hoodies, red team operations, and dramatic terminal windows. But behind every strong security posture is...</p>
+            <div class="post-card-footer">
+              <img src="/assets/headshot.jpg" alt="Maggie Trowbridge" class="author-avatar">
+              <div>
+                <div class="author-name">Maggie Trowbridge</div>
+                <div class="publish-date">04 Mar 2026 · 8 min read</div>
+              </div>
+            </div>
+            
+            <div class="post-tags" style="margin-top:12px">
+              
+              <span class="tag">GRC</span>
+              
+              <span class="tag">Compliance</span>
+              
+              <span class="tag">Cyber Law</span>
+              
+              <span class="tag">Security Policy</span>
+              
+            </div>
+            
+          </div>
+        </a>
+      </article>
+      
+      <article class="post-card">
+        <a href="/what-i-learned-competing-at-national-ccdc/" class="post-card-link">
+          <div class="post-card-body">
+            
+            <span class="post-card-category">Competition</span>
+            
+            <h3 class="post-card-title">What I Learned Competing at National CCDC</h3>
+            <p class="post-card-excerpt">Competing in the Collegiate Cyber Defense Competition at the national level was one of the most intense, rewarding experiences of my cybersecurity journey so far....</p>
+            <div class="post-card-footer">
+              <img src="/assets/headshot.jpg" alt="Maggie Trowbridge" class="author-avatar">
+              <div>
+                <div class="author-name">Maggie Trowbridge</div>
+                <div class="publish-date">15 Feb 2026 · 10 min read</div>
+              </div>
+            </div>
+            
+            <div class="post-tags" style="margin-top:12px">
+              
+              <span class="tag">CCDC</span>
+              
+              <span class="tag">GRC</span>
+              
+              <span class="tag">Compliance</span>
+              
+              <span class="tag">Team</span>
+              
+            </div>
+            
+          </div>
+        </a>
+      </article>
+      
+      <article class="post-card">
+        <a href="/why-every-cybersecurity-professional-needs-to-understand-cyber-law/" class="post-card-link">
+          <div class="post-card-body">
+            
+            <span class="post-card-category">Cyber Law</span>
+            
+            <h3 class="post-card-title">Why Every Cybersecurity Professional Needs to Understand Cyber Law</h3>
+            <p class="post-card-excerpt">When we talk about cybersecurity, we often focus on the technical — firewalls, SIEM tools, penetration testing. But every security incident exists within a legal...</p>
+            <div class="post-card-footer">
+              <img src="/assets/headshot.jpg" alt="Maggie Trowbridge" class="author-avatar">
+              <div>
+                <div class="author-name">Maggie Trowbridge</div>
+                <div class="publish-date">20 Jan 2026 · 7 min read</div>
+              </div>
+            </div>
+            
+            <div class="post-tags" style="margin-top:12px">
+              
+              <span class="tag">Cyber Law</span>
+              
+              <span class="tag">Criminal Law</span>
+              
+              <span class="tag">Compliance</span>
+              
+              <span class="tag">Policy</span>
+              
+            </div>
+            
+          </div>
+        </a>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about" class="about-hero">
+  <div class="container">
+    <div class="about-hero-inner">
+      <img src="/assets/headshot.jpg" alt="Maggie Trowbridge" class="about-headshot">
+      <div class="about-intro">
+        <h1>Maggie Trowbridge</h1>
+        <p class="about-tagline">GRC Lead &bull; Cyber Law &bull; Security Analyst</p>
+        <p>I'm a cybersecurity student and aspiring cyber law professional passionate about governance, risk, compliance, and security policy. Currently pursuing my B.S. in Cyber Security with minors in Communications and Criminal Law at Indiana Institute of Technology, while working as a Security Analyst Apprentice and Research Assistant.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about-section">
+  <div class="container">
+    <h2>Education</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-date">Expected 2028</div>
+        <div class="timeline-content">
+          <h3>Bachelor of Science, Cyber Security</h3>
+          <p class="timeline-org">Indiana Institute of Technology, Fort Wayne, IN</p>
+          <ul>
+            <li>Minor in Communications</li>
+            <li>Minor in Criminal Law</li>
+            <li>Certificate in Law Studies</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">2022 – 2024</div>
+        <div class="timeline-content">
+          <h3>Cyber Security and Computer Network Technologies</h3>
+          <p class="timeline-org">Van Buren Technology Center</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about-section">
+  <div class="container">
+    <h2>Professional Experience</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-date">Jan 2026 – Present</div>
+        <div class="timeline-content">
+          <h3>Security Analyst Apprentice</h3>
+          <p class="timeline-org">Indiana Cyber Network</p>
+          <ul>
+            <li>Conduct hands-on security assessments and compliance-focused evaluations within regulated client environments</li>
+            <li>Identify, analyze, and validate security weaknesses through event investigation and attack-path analysis</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Oct 2025 – Present</div>
+        <div class="timeline-content">
+          <h3>Research Assistant</h3>
+          <p class="timeline-org">Indiana Tech Talwar College of Engineering — Ball Ventures Digital Literacy</p>
+          <ul>
+            <li>Collaborate with faculty and peers to document findings and prepare presentations</li>
+            <li>Develop engaging content for research publications, blogs, and training materials</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Feb 2023 – Present</div>
+        <div class="timeline-content">
+          <h3>Receptionist</h3>
+          <p class="timeline-org">LizRyan Salon and Spa, South Haven, MI</p>
+          <ul>
+            <li>Managed client scheduling and front desk operations with professionalism and care</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">June 2023 – Aug 2024</div>
+        <div class="timeline-content">
+          <h3>Retail Consultant</h3>
+          <p class="timeline-org">The Blueberry Store, South Haven, MI</p>
+          <ul>
+            <li>Delivered excellent customer service and assisted with daily retail operations</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about-section">
+  <div class="container">
+    <h2>Organizations</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-date">Fall 2025 – Present</div>
+        <div class="timeline-content">
+          <h3>Governance Risk & Compliance Lead / Offensive Security Co-Lead</h3>
+          <p class="timeline-org">Indiana Tech Cyber Warriors &bull; <a href="https://techcyberwarriors.org" target="_blank" rel="noopener">techcyberwarriors.org</a></p>
+          <ul>
+            <li>Prepared for and participated in CCDC, CPTC, UBUFF, NCL, and Hivestorm competitions</li>
+            <li>Co-leads weekly practice sessions for offensive security team members</li>
+            <li>Advanced to National CCDC as part of a top-performing team</li>
+            <li>Designed and implemented GRC training modules including security policy drafting, risk assessment frameworks, and regulatory compliance</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Fall 2025 – Present</div>
+        <div class="timeline-content">
+          <h3>Director of Communications</h3>
+          <p class="timeline-org">Indiana Tech Cyber Warriors</p>
+          <ul>
+            <li>Handles all internal and external communications including social media, newsletters, corporate sponsorships, and fundraising</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about-section">
+  <div class="container">
+    <h2>Achievements</h2>
+    <div class="achievements-grid">
+      <div class="achievement-card">
+        <div class="achievement-place">🥇 1st Place</div>
+        <div class="achievement-title">MWCCDC 2025</div>
+        <div class="achievement-event">Midwest Collegiate Cyber Defense Competition — GRC Lead</div>
+      </div>
+      <div class="achievement-card">
+        <div class="achievement-place">🥉 3rd in State</div>
+        <div class="achievement-title">Network Administration Using Cisco</div>
+        <div class="achievement-event">Business Professionals of America, 2024</div>
+      </div>
+      <div class="achievement-card">
+        <div class="achievement-place">🥇 1st in Region</div>
+        <div class="achievement-title">Network Administration Using Cisco</div>
+        <div class="achievement-event">Business Professionals of America, 2024</div>
+      </div>
+      <div class="achievement-card">
+        <div class="achievement-place">🥇 1st in Region</div>
+        <div class="achievement-title">Computer Network Technology</div>
+        <div class="achievement-event">Business Professionals of America, 2024</div>
+      </div>
+      <div class="achievement-card">
+        <div class="achievement-place">🥈 2nd in State</div>
+        <div class="achievement-title">Device Configuration & Troubleshooting</div>
+        <div class="achievement-event">Business Professionals of America, 2023</div>
+      </div>
+      <div class="achievement-card">
+        <div class="achievement-place">🥇 1st in Region</div>
+        <div class="achievement-title">Device Configuration & Troubleshooting</div>
+        <div class="achievement-event">Business Professionals of America, 2023</div>
+      </div>
+      <div class="achievement-card">
+        <div class="achievement-place">🥈 2nd in Region</div>
+        <div class="achievement-title">Computer Security</div>
+        <div class="achievement-event">Business Professionals of America, 2023</div>
+      </div>
+      <div class="achievement-card">
+        <div class="achievement-place">🥈 2nd in Region</div>
+        <div class="achievement-title">Computer Programming Concepts</div>
+        <div class="achievement-event">Business Professionals of America, 2023</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about-section">
+  <div class="container">
+    <h2>Certifications</h2>
+    <div class="certs-grid">
+      <div class="cert-group">
+        <h3>Certiport</h3>
+        <ul>
+          <li>Device Configuration and Management</li>
+          <li>Cyber Security</li>
+          <li>Networking</li>
+          <li>Network Security</li>
+          <li>Computational Thinking</li>
+        </ul>
+      </div>
+      <div class="cert-group">
+        <h3>Cisco</h3>
+        <ul>
+          <li>Cisco Certified Support Technician</li>
+        </ul>
+      </div>
+      <div class="cert-group">
+        <h3>TestOut</h3>
+        <ul>
+          <li>PC Pro</li>
+          <li>Networking Pro</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="contact-section">
+  <div class="container">
+    <h2 style="font-size:40px; text-align:center; margin-bottom:12px;">Get in Touch</h2>
+    <p class="subtitle">Have a question, want to collaborate, or just want to connect? Reach out anytime.</p>
+
+    <ul class="contact-info-list">
+      <li>
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div class="contact-detail">
+          <h3>Email</h3>
+          <a href="mailto:maggiemtrowbridge@gmail.com">maggiemtrowbridge@gmail.com</a>
+        </div>
+      </li>
+      <li>
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <div class="contact-detail">
+          <h3>Phone</h3>
+          <a href="tel:+12692060439">(269) 206-0439</a>
+        </div>
+      </li>
+      <li>
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        </div>
+        <div class="contact-detail">
+          <h3>Cyber Warriors</h3>
+          <a href="https://techcyberwarriors.org" target="_blank" rel="noopener">techcyberwarriors.org</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="logo">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="24" height="24" rx="4" fill="#E86C5A"/>
+            <path d="M7 8h10M7 12h10M7 16h6" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <span>Maggie Trowbridge</span>
+        </a>
+        <p class="footer-tagline">GRC professional, cyber law student, and security researcher.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="mailto:maggiemtrowbridge@gmail.com">Email</a></li>
+          <li><a href="https://techcyberwarriors.org" target="_blank" rel="noopener">Cyber Warriors</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Maggie Trowbridge. All rights reserved. &nbsp;&bull;&nbsp; Powered by <a href="https://mtsaga.net" target="_blank" rel="noopener" class="mtsaga-link">MTSAGA.net</a></p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

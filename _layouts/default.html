@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title and page.title != 'Home' %}{{ page.title }} — {% endif %}{{ site.title }} | Cybersecurity Blog & Portfolio</title>
+  <meta name="description" content="{% if page.meta_description %}{{ page.meta_description }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | truncatewords: 30 }}{% else %}{{ site.description }}{% endif %}">
+  <meta name="keywords" content="{% if page.keywords %}{{ page.keywords }}{% else %}{{ site.keywords }}{% endif %}">
+  <meta name="author" content="{{ site.author.name }}">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta property="og:description" content="{% if page.meta_description %}{{ page.meta_description }}{% else %}{{ site.description }}{% endif %}">
+  <meta property="og:image" content="{{ '/assets/headshot.jpg' | absolute_url }}">
+  <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta name="twitter:description" content="{% if page.meta_description %}{{ page.meta_description }}{% else %}{{ site.description }}{% endif %}">
+  <meta name="twitter:image" content="{{ '/assets/headshot.jpg' | absolute_url }}">
+
+  <!-- Structured Data / JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "{{ site.author.name }}",
+    "url": "{{ site.url }}",
+    "email": "{{ site.author.email }}",
+    "telephone": "+1-269-206-0439",
+    "jobTitle": "Security Analyst Apprentice",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Indiana Cyber Network"
+    },
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Indiana Institute of Technology"
+    },
+    "knowsAbout": ["Cybersecurity", "Governance Risk and Compliance", "Offensive Security", "Network Security", "Cyber Defense"],
+    "sameAs": ["https://techcyberwarriors.org"],
+    "image": "{{ '/assets/headshot.jpg' | absolute_url }}"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "{{ site.title }}",
+    "url": "{{ site.url }}",
+    "description": "{{ site.description }}",
+    "author": {
+      "@type": "Person",
+      "name": "{{ site.author.name }}"
+    }
+  }
+  </script>
+
+  <link rel="icon" type="image/jpeg" href="{{ '/assets/headshot.jpg' | relative_url }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
+</head>
+<body>
+  {% include header.html %}
+  <main role="main" aria-label="Main content">
+    {{ content }}
+  </main>
+  {% include footer.html %}
+</body>
+</html>

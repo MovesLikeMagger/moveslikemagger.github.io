@@ -1,0 +1,26 @@
+title: Maggie Trowbridge
+description: "Cybersecurity blog by Maggie Trowbridge — GRC Lead, Cyber Law student, and Security Analyst at Indiana Institute of Technology. Writing about governance, risk, compliance, cyber law, regulatory frameworks, and security policy."
+keywords: "Maggie Trowbridge, cybersecurity blog, GRC, governance risk compliance, cyber law, criminal law, security policy, CCDC, NIST, HIPAA, regulatory compliance, Indiana Tech, Cyber Warriors"
+author:
+  name: Maggie Trowbridge
+  email: maggiemtrowbridge@gmail.com
+  bio: "Security Analyst Apprentice & Research Assistant at Indiana Institute of Technology. Passionate about cybersecurity, GRC, and making the digital world safer."
+url: ""
+baseurl: ""
+markdown: kramdown
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+permalink: /:title/
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"

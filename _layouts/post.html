@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} — {{ site.title }}</title>
+  <meta name="description" content="{% if page.subtitle %}{{ page.subtitle }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | truncatewords: 30 }}{% else %}{{ site.description }}{% endif %}">
+  <meta name="keywords" content="{% if page.tags %}{{ page.tags | join: ', ' }}{% else %}{{ site.keywords }}{% endif %}">
+  <meta name="author" content="{{ site.author.name }}">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:title" content="{{ page.title }}">
+  <meta property="og:description" content="{% if page.subtitle %}{{ page.subtitle }}{% else %}{{ site.description }}{% endif %}">
+  <meta property="og:image" content="{{ '/assets/headshot.jpg' | absolute_url }}">
+  <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:locale" content="en_US">
+  <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+  {% if page.tags %}<meta property="article:tag" content="{{ page.tags | join: ', ' }}">{% endif %}
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ page.title }}">
+  <meta name="twitter:description" content="{% if page.subtitle %}{{ page.subtitle }}{% else %}{{ site.description }}{% endif %}">
+  <meta name="twitter:image" content="{{ '/assets/headshot.jpg' | absolute_url }}">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "{{ page.title }}",
+    "description": "{% if page.subtitle %}{{ page.subtitle }}{% else %}{{ page.excerpt | strip_html | truncatewords: 30 }}{% endif %}",
+    "datePublished": "{{ page.date | date_to_xmlschema }}",
+    "author": {
+      "@type": "Person",
+      "name": "{{ site.author.name }}",
+      "url": "{{ site.url }}"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "{{ site.author.name }}"
+    },
+    "image": "{{ '/assets/headshot.jpg' | absolute_url }}",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "{{ page.url | absolute_url }}"
+    }
+  }
+  </script>
+
+  <link rel="icon" type="image/jpeg" href="{{ '/assets/headshot.jpg' | relative_url }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
+</head>
+<body>
+  <!-- Post page header with home navigation -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav">
+        <a href="{{ '/' | relative_url }}" class="logo">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="24" height="24" rx="4" fill="#E86C5A"/>
+            <path d="M7 8h10M7 12h10M7 16h6" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <span>Maggie Trowbridge</span>
+        </a>
+        <button class="mobile-menu-toggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-links">
+          <li><a href="{{ '/' | relative_url }}">Home</a></li>
+          <li><a href="{{ '/' | relative_url }}#blog">Blog</a></li>
+          <li><a href="{{ '/' | relative_url }}#about">About</a></li>
+          <li><a href="{{ '/' | relative_url }}#contact">Contact</a></li>
+        </ul>
+        <a href="{{ '/' | relative_url }}#contact" class="btn btn-primary nav-cta">Get in touch</a>
+      </nav>
+    </div>
+  </header>
+
+  <main role="main" aria-label="Blog post: {{ page.title }}">
+    <!-- Post hero -->
+    <section class="post-hero">
+      <div class="container">
+        <a href="{{ '/' | relative_url }}#blog" class="post-back-link">&larr; Back to all posts</a>
+        <div class="post-hero-content">
+          {% if page.category %}
+          <span class="post-card-category">{{ page.category }}</span>
+          {% endif %}
+          <h1 class="post-page-title">{{ page.title }}</h1>
+          {% if page.subtitle %}
+          <p class="post-page-subtitle">{{ page.subtitle }}</p>
+          {% endif %}
+          <div class="post-page-meta">
+            <img src="{{ '/assets/headshot.jpg' | relative_url }}" alt="Maggie Trowbridge" class="author-avatar">
+            <div>
+              <div class="author-name">Maggie Trowbridge</div>
+              <div class="publish-date">{{ page.date | date: "%B %d, %Y" }}{% if page.readtime %} · {{ page.readtime }}{% endif %}</div>
+            </div>
+          </div>
+          {% if page.tags.size > 0 %}
+          <div class="post-tags" style="margin-top: 16px;">
+            {% for tag in page.tags %}
+            <span class="tag">{{ tag }}</span>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </section>
+
+    <!-- Table of contents -->
+    {% if page.toc %}
+    <section class="post-toc-section">
+      <div class="container">
+        <div class="post-toc">
+          <h4>In this article</h4>
+          <ol>
+            {% for item in page.toc %}
+            <li><a href="#{{ item.id }}">{{ item.title }}</a></li>
+            {% endfor %}
+          </ol>
+        </div>
+      </div>
+    </section>
+    {% endif %}
+
+    <!-- Post body -->
+    <article class="post-body-section">
+      <div class="container">
+        <div class="post-body-content">
+          {{ content }}
+        </div>
+      </div>
+    </article>
+
+    <!-- Post footer / navigation -->
+    <section class="post-footer-nav">
+      <div class="container">
+        <div class="post-footer-inner">
+          <a href="{{ '/' | relative_url }}#blog" class="btn btn-secondary">&larr; Back to all posts</a>
+          {% assign all_posts = site.posts | sort: 'date' | reverse %}
+          {% for p in all_posts %}
+            {% if p.url == page.url %}
+              {% if forloop.last == false %}
+                {% assign next_post = all_posts[forloop.index] %}
+                {% if next_post %}
+                <a href="{{ next_post.url | relative_url }}" class="btn btn-primary">Next: {{ next_post.title | truncatewords: 5 }} &rarr;</a>
+                {% endif %}
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  {% include footer.html %}
+
+  <script>
+  document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+    this.classList.toggle('active');
+    document.querySelector('.nav-links').classList.toggle('open');
+    document.querySelector('.nav-cta').classList.toggle('open');
+  });
+  </script>
+</body>
+</html>
