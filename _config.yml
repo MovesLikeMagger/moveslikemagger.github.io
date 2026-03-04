@@ -8,6 +8,11 @@ author:
 url: ""
 baseurl: ""
 markdown: kramdown
+exclude:
+  - DESIGN_GUIDE.md
+  - README.md
+  - Gemfile
+  - Gemfile.lock
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
