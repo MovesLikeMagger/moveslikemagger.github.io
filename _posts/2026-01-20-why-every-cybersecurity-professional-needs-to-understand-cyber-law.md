@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Why Every Cybersecurity Professional Needs to Understand Cyber Law"
-subtitle: "From CFAA to state-level data breach statutes, knowing the legal landscape is what separates a good analyst from a great one. Here's why criminal law belongs in your security toolkit."
 date: 2026-01-20
 category: Cyber Law
 tags: [Cyber Law, Criminal Law, Compliance, Policy]
@@ -22,12 +21,7 @@ When we talk about cybersecurity, we often focus on the technical — firewalls,
 ## The Legal Landscape
 {: #the-legal-landscape}
 
-Cybersecurity doesn't happen in a vacuum. Every vulnerability assessment, every incident response, and every policy you write intersects with the law:
-
-- **The Computer Fraud and Abuse Act (CFAA)** defines what constitutes unauthorized access to computer systems at the federal level
-- **State data breach notification laws** dictate how and when organizations must disclose breaches — and the penalties for failing to do so
-- **HIPAA, FERPA, GLBA** and other sector-specific regulations create legal obligations around data protection
-- **International frameworks** like GDPR introduce cross-border compliance requirements
+Cybersecurity isn't segregated from the rest of the world. It's in everything we do, keeping us safe 24/7. For me, that wasn't enough. I wanted the behind-the-scenes, the regulatory rules and frameworks. Laws and regulations keep organizations and individuals accountable and auditable.
 
 For a security analyst, understanding these laws isn't optional — it's what ensures your technical work holds up in court, in audits, and in regulatory proceedings.
 
